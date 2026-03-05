@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin — CarePoint Clinic Dashboard</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="admin-body">
+
+  <!-- LOGIN SCREEN -->
+  <div class="admin-login" id="loginScreen">
+    <div class="login-box">
+      <div class="login-logo">
+        <div class="nav-logo" style="justify-content:center;margin-bottom:8px;"><div class="logo-icon">✚</div>CarePoint</div>
+        <h2>Staff Login</h2>
+        <p>Dashboard access only for clinic staff</p>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Password</label>
+        <input type="password" class="form-input" id="adminPass" placeholder="Enter clinic password" onkeydown="if(event.key==='Enter')login()" />
+      </div>
+      <button class="form-submit" onclick="login()" style="margin-top:8px;">Login to Dashboard →</button>
+      <p style="text-align:center;font-size:0.78rem;color:var(--grey-3);margin-top:16px;">
+        <a href="index.html" style="color:var(--green);">← Back to Website</a>
+      </p>
+      <div id="loginError" style="display:none;margin-top:12px;padding:12px;background:var(--red-soft);border:1px solid var(--red);border-radius:8px;font-size:0.85rem;color:var(--red);text-align:center;">
+        Incorrect password. Please try again.
+      </div>
+    </div>
+  </div>
+
+  <!-- SIDEBAR -->
+  <div class="admin-sidebar" id="adminSidebar">
+    <div class="sidebar-logo">
+      <div class="nav-logo"><div class="logo-icon">✚</div>CarePoint</div>
+      <div style="font-size:0.75rem;color:var(--grey-3);margin-top:4px;">Admin Dashboard</div>
+    </div>
+    <nav class="sidebar-nav">
+      <div class="sidebar-nav-item active" onclick="showTab('overview')"><span class="nav-icon">📊</span>Overview</div>
+      <div class="sidebar-nav-item" onclick="showTab('appointments')"><span class="nav-icon">📅</span>Appointments</div>
+      <div class="sidebar-nav-item" onclick="showTab('today')"><span class="nav-icon">🌅</span>Today's Schedule</div>
+    </nav>
+    <div style="padding:16px 24px;border-top:1px solid rgba(255,255,255,0.05);">
+      <button onclick="logout()" style="background:none;border:none;color:var(--grey-3);font-size:0.85rem;cursor:pointer;display:flex;align-items:center;gap:8px;">🚪 Logout</button>
+    </div>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <div class="admin-main" id="adminMain">
+
+    <!-- Overview Tab -->
+    <div id="tab-overview">
+      <div class="admin-topbar">
+        <div>
+          <h1>Good Morning, Dr. Mehta 👋</h1>
+          <p id="todayDate" style="color:var(--grey-3);font-size:0.85rem;margin-top:4px;"></p>
+        </div>
+        <a href="index.html" target="_blank" class="btn btn-outline" style="font-size:0.85rem;">View Website →</a>
+      </div>
+
+      <div class="stats-row" id="statsRow">
+        <div class="stat-card"><div class="stat-card-label">Today's Appointments</div><div class="stat-card-num" id="statToday">—</div><div class="stat-card-sub">loading...</div></div>
+        <div class="stat-card"><div class="stat-card-label">Pending Confirmation</div><div class="stat-card-num" id="statPending">—</div><div class="stat-card-sub">need action</div></div>
+        <div class="stat-card"><div class="stat-card-label">This Week</div><div class="stat-card-num" id="statWeek">—</div><div class="stat-card-sub">total booked</div></div>
+        <div class="stat-card"><div class="stat-card-label">All Time</div><div class="stat-card-num" id="statTotal">—</div><div class="stat-card-sub">total appointments</div></div>
+      </div>
+
+      <!-- Recent appointments -->
+      <div class="appointments-table">
+        <div class="table-header">
+          <div><h3>Recent Appointments</h3><p>Latest 10 bookings</p></div>
+          <button class="btn btn-outline" style="font-size:0.8rem;padding:8px 16px;" onclick="loadAppointments()">🔄 Refresh</button>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Patient</th>
+                <th>Phone</th>
+                <th>Service</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="appointmentsBody">
+              <tr><td colspan="7"><div class="empty-state"><div class="empty-icon">⏳</div><p>Loading appointments...</p></div></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Appointments Tab -->
+    <div id="tab-appointments" style="display:none;">
+      <div class="admin-topbar">
+        <div><h1>All Appointments</h1><p style="color:var(--grey-3);font-size:0.85rem;">Complete booking history</p></div>
+        <div style="display:flex;gap:12px;align-items:center;">
+          <select id="filterStatus" class="form-select" style="width:180px;padding:10px 16px;" onchange="filterAppointments()">
+            <option value="">All Statuses</option>
+            <option value="pending">Pending</option>
+            <option value="confirmed">Confirmed</option>
+            <option value="done">Done</option>
+          </select>
+          <button class="btn btn-outline" style="font-size:0.8rem;padding:10px 16px;" onclick="loadAllAppointments()">🔄 Refresh</button>
+        </div>
+      </div>
+      <div class="appointments-table">
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Patient</th>
+                <th>Phone</th>
+                <th>Service</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Notes</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="allAppointmentsBody">
+              <tr><td colspan="8"><div class="empty-state"><div class="empty-icon">⏳</div><p>Loading...</p></div></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Today Tab -->
+    <div id="tab-today" style="display:none;">
+      <div class="admin-topbar">
+        <div><h1>Today's Schedule</h1><p id="todayScheduleDate" style="color:var(--grey-3);font-size:0.85rem;"></p></div>
+      </div>
+      <div class="appointments-table">
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Time</th><th>Patient</th><th>Phone</th><th>Service</th><th>Status</th><th>Actions</th></tr>
+            </thead>
+            <tbody id="todayBody">
+              <tr><td colspan="6"><div class="empty-state"><div class="empty-icon">🌅</div><p>No appointments today</p></div></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /admin-main -->
+
+  <script>
+    const SUPABASE_URL = 'https://angndnomydhwnrvcakln.supabase.co';
+    const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFuZ25kbm9teWRod25ydmNha2xuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzI2MjYyNzcsImV4cCI6MjA4ODIwMjI3N30.eHFXTVHRKj3gt0wGxUNqAslghiQ1qbdB9xHtcUxbF7k';
+    const ADMIN_PASS = 'carepoint2026';
+    const HEADERS = { 'apikey': SUPABASE_KEY, 'Authorization': `Bearer ${SUPABASE_KEY}` };
+
+    let allData = [];
+
+    function login() {
+      const pass = document.getElementById('adminPass').value;
+      if (pass === ADMIN_PASS) {
+        document.getElementById('loginScreen').style.display = 'none';
+        document.getElementById('adminSidebar').classList.add('show');
+        document.getElementById('adminMain').classList.add('show');
+        document.getElementById('todayDate').textContent = new Date().toLocaleDateString('en-IN', { weekday:'long', year:'numeric', month:'long', day:'numeric' });
+        document.getElementById('todayScheduleDate').textContent = new Date().toLocaleDateString('en-IN', { weekday:'long', year:'numeric', month:'long', day:'numeric' });
+        loadAppointments();
+      } else {
+        document.getElementById('loginError').style.display = 'block';
+      }
+    }
+
+    function logout() {
+      document.getElementById('loginScreen').style.display = 'flex';
+      document.getElementById('adminSidebar').classList.remove('show');
+      document.getElementById('adminMain').classList.remove('show');
+      document.getElementById('adminPass').value = '';
+    }
+
+    function showTab(tab) {
+      ['overview','appointments','today'].forEach(t => {
+        document.getElementById(`tab-${t}`).style.display = t === tab ? 'block' : 'none';
+      });
+      document.querySelectorAll('.sidebar-nav-item').forEach((el,i) => {
+        el.classList.toggle('active', ['overview','appointments','today'][i] === tab);
+      });
+      if (tab === 'appointments') loadAllAppointments();
+      if (tab === 'today') loadToday();
+    }
+
+    async function fetchAppointments(extra = '') {
+      const res = await fetch(`${SUPABASE_URL}/rest/v1/clinic_appointments?order=created_at.desc${extra}`, { headers: HEADERS });
+      return await res.json();
+    }
+
+    async function loadAppointments() {
+      try {
+        const data = await fetchAppointments('&limit=10');
+        allData = data;
+        updateStats(data);
+        renderTable(data, 'appointmentsBody', false);
+      } catch(e) { console.error(e); }
+    }
+
+    async function loadAllAppointments() {
+      try {
+        const data = await fetchAppointments();
+        allData = data;
+        renderTable(data, 'allAppointmentsBody', true);
+      } catch(e) {}
+    }
+
+    async function loadToday() {
+      try {
+        const today = new Date().toISOString().split('T')[0];
+        const data = await fetchAppointments(`&appointment_date=eq.${today}`);
+        const sorted = data.sort((a,b) => a.appointment_time.localeCompare(b.appointment_time));
+        const tbody = document.getElementById('todayBody');
+        if (!sorted.length) { tbody.innerHTML = '<tr><td colspan="6"><div class="empty-state"><div class="empty-icon">☀️</div><p>No appointments scheduled for today</p></div></td></tr>'; return; }
+        tbody.innerHTML = sorted.map(a => `
+          <tr>
+            <td><strong>${a.appointment_time}</strong></td>
+            <td>${a.patient_name}</td>
+            <td><a href="tel:${a.patient_phone}" style="color:var(--green);">${a.patient_phone}</a></td>
+            <td>${a.service}</td>
+            <td>${statusBadge(a.status)}</td>
+            <td>
+              ${a.status==='pending' ? `<button class="action-btn action-confirm" onclick="updateStatus('${a.id}','confirmed')">✓ Confirm</button>` : ''}
+              ${a.status==='confirmed' ? `<button class="action-btn action-confirm" onclick="updateStatus('${a.id}','done')">✓ Done</button>` : ''}
+              ${a.status!=='done' ? `<button class="action-btn action-cancel" onclick="updateStatus('${a.id}','cancelled')">✗ Cancel</button>` : ''}
+            </td>
+          </tr>`).join('');
+      } catch(e) {}
+    }
+
+    function updateStats(data) {
+      const today = new Date().toISOString().split('T')[0];
+      const weekAgo = new Date(Date.now()-7*86400000).toISOString().split('T')[0];
+      document.getElementById('statToday').textContent = data.filter(a=>a.appointment_date===today).length;
+      document.getElementById('statPending').textContent = data.filter(a=>a.status==='pending').length;
+      document.getElementById('statWeek').textContent = data.filter(a=>a.appointment_date>=weekAgo).length;
+      document.getElementById('statTotal').textContent = data.length;
+    }
+
+    function renderTable(data, tbodyId, extended) {
+      const tbody = document.getElementById(tbodyId);
+      if (!data.length) {
+        tbody.innerHTML = `<tr><td colspan="${extended?8:7}"><div class="empty-state"><div class="empty-icon">📭</div><p>No appointments yet</p></div></td></tr>`;
+        return;
+      }
+      tbody.innerHTML = data.map(a => `
+        <tr>
+          <td><strong>${a.patient_name}</strong></td>
+          <td><a href="tel:${a.patient_phone}" style="color:var(--green);">${a.patient_phone}</a></td>
+          <td>${a.service}</td>
+          <td>${formatDate(a.appointment_date)}</td>
+          <td>${a.appointment_time}</td>
+          ${extended ? `<td style="color:var(--grey-3);font-size:0.8rem;">${a.notes||'—'}</td>` : ''}
+          <td>${statusBadge(a.status)}</td>
+          <td>
+            ${a.status==='pending' ? `<button class="action-btn action-confirm" onclick="updateStatus('${a.id}','confirmed')">✓ Confirm</button>` : ''}
+            ${a.status==='confirmed' ? `<button class="action-btn action-confirm" onclick="updateStatus('${a.id}','done')">✓ Done</button>` : ''}
+            ${a.status!=='done'&&a.status!=='cancelled' ? `<button class="action-btn action-cancel" onclick="updateStatus('${a.id}','cancelled')">✗</button>` : ''}
+          </td>
+        </tr>`).join('');
+    }
+
+    function filterAppointments() {
+      const filter = document.getElementById('filterStatus').value;
+      const filtered = filter ? allData.filter(a=>a.status===filter) : allData;
+      renderTable(filtered, 'allAppointmentsBody', true);
+    }
+
+    async function updateStatus(id, status) {
+      try {
+        await fetch(`${SUPABASE_URL}/rest/v1/clinic_appointments?id=eq.${id}`, {
+          method: 'PATCH',
+          headers: { ...HEADERS, 'Content-Type': 'application/json', 'Prefer': 'return=minimal' },
+          body: JSON.stringify({ status })
+        });
+        loadAppointments();
+      } catch(e) { alert('Update failed. Please try again.'); }
+    }
+
+    function statusBadge(s) {
+      const map = { pending:'⏳ Pending', confirmed:'✅ Confirmed', done:'✓ Done', cancelled:'✗ Cancelled' };
+      const cls = { pending:'status-pending', confirmed:'status-confirmed', done:'status-done', cancelled:'status-done' };
+      return `<span class="status-badge ${cls[s]||''}">${map[s]||s}</span>`;
+    }
+
+    function formatDate(d) {
+      return new Date(d).toLocaleDateString('en-IN',{day:'numeric',month:'short',year:'numeric'});
+    }
+  </script>
+</body>
+</html>

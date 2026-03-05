@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CarePoint Clinic — Your Health, Our Priority | Bopal, Ahmedabad</title>
+  <meta name="description" content="CarePoint Clinic offers expert general & family medicine in Bopal, Ahmedabad. Book appointments online with Dr. Arjun Mehta. AI-powered health guidance available 24/7." />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏥</text></svg>" />
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZS3KBH3XW4"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-ZS3KBH3XW4');</script>
+</head>
+<body>
+
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <div class="navbar-inner">
+        <a href="index.html" class="nav-logo">
+          <div class="logo-icon">✚</div>CarePoint
+        </a>
+        <ul class="nav-links">
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="#doctors">Doctors</a></li>
+          <li><a href="#location">Find Us</a></li>
+          <li><a href="book.html" class="btn btn-primary" style="padding:10px 22px;font-size:0.85rem;">Book Appointment</a></li>
+        </ul>
+        <a href="tel:+919876543210" class="nav-emergency">🚨 Emergency</a>
+        <button class="nav-hamburger" onclick="toggleMenu()">☰</button>
+      </div>
+    </div>
+  </nav>
+
+  <div id="mobileMenu" style="display:none;position:fixed;inset:0;background:rgba(5,13,26,0.98);z-index:999;flex-direction:column;align-items:center;justify-content:center;gap:32px;">
+    <button onclick="toggleMenu()" style="position:absolute;top:24px;right:24px;background:none;border:none;color:white;font-size:2rem;cursor:pointer;">✕</button>
+    <a href="index.html" onclick="toggleMenu()" style="font-family:'Syne',sans-serif;font-size:1.5rem;color:white;">Home</a>
+    <a href="services.html" onclick="toggleMenu()" style="font-family:'Syne',sans-serif;font-size:1.5rem;color:white;">Services</a>
+    <a href="#doctors" onclick="toggleMenu()" style="font-family:'Syne',sans-serif;font-size:1.5rem;color:white;">Doctors</a>
+    <a href="#location" onclick="toggleMenu()" style="font-family:'Syne',sans-serif;font-size:1.5rem;color:white;">Find Us</a>
+    <a href="book.html" onclick="toggleMenu()" class="btn btn-primary">Book Appointment</a>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg-circle hero-bg-circle-1"></div>
+    <div class="hero-bg-circle hero-bg-circle-2"></div>
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-content">
+          <div class="hero-badge">✦ Trusted by 2,000+ families in Bopal</div>
+          <h1 class="hero-title">Your Family's<br/><span class="accent">Health Partner</span><br/>Always Here</h1>
+          <p class="hero-desc">Expert general & family medicine, AI-powered health guidance, and same-day appointments — all in one place. Because your health can't wait.</p>
+          <div class="hero-btns">
+            <a href="book.html" class="btn btn-primary">📅 Book Appointment</a>
+            <a href="tel:+919876543210" class="btn btn-outline">📞 Call Now</a>
+          </div>
+          <div class="hero-stats">
+            <div class="hero-stat-item"><span class="hero-stat-num">2K+</span><div class="hero-stat-label">Happy Patients</div></div>
+            <div class="hero-stat-item"><span class="hero-stat-num">10+</span><div class="hero-stat-label">Years Experience</div></div>
+            <div class="hero-stat-item"><span class="hero-stat-num">4.9★</span><div class="hero-stat-label">Google Rating</div></div>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="hero-card-main">
+            <div class="doctor-avatar">👨‍⚕️</div>
+            <div class="doctor-info">
+              <h3>Dr. Arjun Mehta</h3>
+              <p>MBBS, MD — General & Family Medicine</p>
+              <div class="doctor-tags">
+                <span class="doctor-tag">General Medicine</span>
+                <span class="doctor-tag">Diabetes Care</span>
+                <span class="doctor-tag">Child Health</span>
+                <span class="doctor-tag">Preventive Care</span>
+              </div>
+            </div>
+          </div>
+          <div class="float-card float-card-1">
+            <div class="float-card-icon">✅</div>
+            <div class="float-card-text"><strong>Appointment Confirmed</strong>Rahul S. — Today 5:00 PM</div>
+          </div>
+          <div class="float-card float-card-2">
+            <div class="float-card-icon">⏱️</div>
+            <div class="float-card-text"><strong>Avg. Wait Time</strong>Only 15 minutes</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST BAR -->
+  <section class="trust-bar">
+    <div class="container">
+      <div class="trust-grid">
+        <div class="trust-item reveal"><span class="trust-num" data-target="2000">0</span><div class="trust-label">Patients Treated</div></div>
+        <div class="trust-item reveal"><span class="trust-num" data-target="10">0</span><div class="trust-label">Years Experience</div></div>
+        <div class="trust-item reveal"><span class="trust-num" data-suffix="★" data-target="4.9">0</span><div class="trust-label">Google Rating</div></div>
+        <div class="trust-item reveal"><span class="trust-num" data-target="15">0</span><div class="trust-label">Min Avg Wait</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="section services-section" id="services">
+    <div class="container">
+      <div class="text-center">
+        <div class="section-label">What We Treat</div>
+        <h2 class="section-title">Comprehensive Care<br/>For Every Stage of Life</h2>
+        <p class="section-desc" style="margin:0 auto;">From routine checkups to managing chronic conditions — equipped to care for your entire family.</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card reveal"><div class="service-icon">🩺</div><h3>General Medicine</h3><p>Fever, infections, flu, body aches, and all common illnesses treated with precision.</p><div class="service-arrow">↗</div></div>
+        <div class="service-card reveal"><div class="service-icon">🩸</div><h3>Diabetes Care</h3><p>Complete diabetes management — blood sugar, diet counselling, medication review.</p><div class="service-arrow">↗</div></div>
+        <div class="service-card reveal"><div class="service-icon">👶</div><h3>Child Health</h3><p>Vaccinations, growth monitoring, fever management, complete paediatric consultations.</p><div class="service-arrow">↗</div></div>
+        <div class="service-card reveal"><div class="service-icon">👩</div><h3>Women's Health</h3><p>Hormonal concerns, anaemia, thyroid issues, and general wellness for all ages.</p><div class="service-arrow">↗</div></div>
+        <div class="service-card reveal"><div class="service-icon">🛡️</div><h3>Preventive Care</h3><p>Annual checkups, blood pressure monitoring, cholesterol screening, early detection.</p><div class="service-arrow">↗</div></div>
+        <div class="service-card reveal"><div class="service-icon">🚨</div><h3>Minor Emergency</h3><p>Cuts, burns, sprains, allergic reactions — immediate attention for urgent cases.</p><div class="service-arrow">↗</div></div>
+      </div>
+      <div style="text-align:center;margin-top:40px;"><a href="services.html" class="btn btn-outline">View All Services & Fees →</a></div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="section" id="how">
+    <div class="container">
+      <div class="text-center">
+        <div class="section-label">Simple Process</div>
+        <h2 class="section-title">Book in 60 Seconds,<br/>Seen in Minutes</h2>
+      </div>
+      <div class="how-steps">
+        <div class="step-card reveal"><div class="step-num">1</div><h3>Book Online</h3><p>Choose your service, pick a date and time slot — takes less than a minute.</p></div>
+        <div class="step-card reveal"><div class="step-num">2</div><h3>Visit Clinic</h3><p>Walk in at your scheduled time. No long queues — your slot is reserved for you.</p></div>
+        <div class="step-card reveal"><div class="step-num">3</div><h3>Get Better</h3><p>Consult with Dr. Mehta, get your prescription, and follow up anytime via WhatsApp.</p></div>
+      </div>
+      <div style="text-align:center;margin-top:48px;"><a href="book.html" class="btn btn-primary">📅 Book My Appointment</a></div>
+    </div>
+  </section>
+
+  <!-- DOCTOR -->
+  <section class="section" id="doctors" style="background:rgba(10,22,40,0.5);">
+    <div class="container">
+      <div class="text-center" style="margin-bottom:60px;">
+        <div class="section-label">Meet the Doctor</div>
+        <h2 class="section-title">In Trusted Hands</h2>
+        <p class="section-desc" style="margin:0 auto;">Hover over the card to learn more about Dr. Mehta's expertise.</p>
+      </div>
+      <div style="max-width:400px;margin:0 auto;">
+        <div class="doctor-card-flip reveal">
+          <div class="doctor-card-inner">
+            <div class="doctor-front">
+              <div class="doctor-photo">👨‍⚕️</div>
+              <div class="doctor-degree">MBBS, MD — General Medicine</div>
+              <h3 style="margin:8px 0 4px;">Dr. Arjun Mehta</h3>
+              <p style="font-size:0.85rem;color:var(--grey-3);">10+ Years Experience · Bopal, Ahmedabad</p>
+              <div class="doctor-tags" style="margin-top:16px;"><span class="doctor-tag">Mon–Sat</span><span class="doctor-tag">9am–1pm</span><span class="doctor-tag">5pm–9pm</span></div>
+              <div class="flip-hint">↺ Hover to see specialities</div>
+            </div>
+            <div class="doctor-back">
+              <h3 style="color:var(--green);margin-bottom:8px;">Specialisations</h3>
+              <ul class="back-list">
+                <li>General & Family Medicine</li>
+                <li>Diabetes & Metabolic Disorders</li>
+                <li>Hypertension Management</li>
+                <li>Paediatric Consultations</li>
+                <li>Women's Hormonal Health</li>
+                <li>Preventive Health Checkups</li>
+                <li>Minor Surgical Procedures</li>
+              </ul>
+              <a href="book.html" class="btn btn-primary" style="margin-top:20px;width:100%;justify-content:center;">Book Appointment</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AI SYMPTOM CHECKER -->
+  <section class="section ai-section" id="ai-checker">
+    <div class="container">
+      <div class="text-center">
+        <div class="section-label">Powered by AI</div>
+        <h2 class="section-title">Not Sure What's Wrong?<br/>Ask Our AI Assistant</h2>
+        <p class="section-desc" style="margin:0 auto;">Describe your symptoms and get instant intelligent guidance. Available 24/7 — even when the clinic is closed.</p>
+      </div>
+      <div class="ai-checker-box reveal">
+        <div class="ai-badge">🤖 CarePoint AI — Powered by Claude</div>
+        <textarea class="ai-input" id="symptomInput" placeholder="Describe your symptoms... e.g. 'fever since 2 days, headache, body pain, no appetite'" rows="4"></textarea>
+        <button class="ai-submit" id="aiSubmitBtn" onclick="checkSymptoms()">🔍 Analyse My Symptoms</button>
+        <div class="ai-result" id="aiResult">
+          <div class="ai-result-header">
+            <div class="ai-result-icon">🤖</div>
+            <div><strong>AI Health Guidance</strong><div style="font-size:0.75rem;color:var(--grey-3);">Based on your symptoms</div></div>
+          </div>
+          <div class="ai-result-content" id="aiResultContent"></div>
+          <div class="ai-disclaimer">This is general guidance only and not a medical diagnosis. Please consult Dr. Mehta for accurate diagnosis and treatment.</div>
+          <a href="book.html" class="btn btn-primary" style="margin-top:20px;width:100%;justify-content:center;">📅 Book Appointment with Dr. Mehta</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="section" id="reviews">
+    <div class="container">
+      <div class="text-center">
+        <div class="section-label">Patient Stories</div>
+        <h2 class="section-title">What Our Patients Say</h2>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card reveal">
+          <div class="stars">★★★★★</div>
+          <p class="testimonial-text">"Dr. Mehta is incredibly thorough and patient. He explained my diabetes management in a way I finally understood. The online booking is so convenient!"</p>
+          <div class="testimonial-author"><div class="author-avatar">R</div><div><div class="author-name">Ramesh Patel</div><div class="author-label">Patient since 2019</div></div></div>
+        </div>
+        <div class="testimonial-card reveal">
+          <div class="stars">★★★★★</div>
+          <p class="testimonial-text">"I used the AI symptom checker at midnight when my daughter had a high fever. It calmed me down and helped me know what to do. Brilliant!"</p>
+          <div class="testimonial-author"><div class="author-avatar">P</div><div><div class="author-name">Priya Shah</div><div class="author-label">Patient since 2021</div></div></div>
+        </div>
+        <div class="testimonial-card reveal">
+          <div class="stars">★★★★★</div>
+          <p class="testimonial-text">"Booked my appointment in under a minute, was seen exactly on time. No waiting room chaos. This is what modern healthcare should feel like."</p>
+          <div class="testimonial-author"><div class="author-avatar">K</div><div><div class="author-name">Kiran Desai</div><div class="author-label">Patient since 2022</div></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOCATION -->
+  <section class="section" id="location" style="background:rgba(10,22,40,0.5);">
+    <div class="container">
+      <div class="text-center">
+        <div class="section-label">Find Us</div>
+        <h2 class="section-title">We're Easy to Reach</h2>
+      </div>
+      <div class="location-grid">
+        <div class="location-info">
+          <div class="info-item reveal"><div class="info-icon">📍</div><div class="info-content"><strong>Address</strong><span>Shop 12, Shivalik Complex, Near Bopal Cross Road, Bopal, Ahmedabad — 380058</span></div></div>
+          <div class="info-item reveal"><div class="info-icon">🕐</div><div class="info-content"><strong>Clinic Hours</strong><span>Mon–Sat: 9:00 AM – 1:00 PM &amp; 5:00 PM – 9:00 PM · Sunday: Emergency only</span></div></div>
+          <div class="info-item reveal"><div class="info-icon">📞</div><div class="info-content"><strong>Phone</strong><span><a href="tel:+919876543210" style="color:var(--green);">+91 98765 43210</a></span></div></div>
+          <div class="info-item reveal"><div class="info-icon">🚌</div><div class="info-content"><strong>How to Reach</strong><span>BRTS Bopal Bus Stop — 2 min walk. Parking in Shivalik Complex basement.</span></div></div>
+          <a href="https://wa.me/919876543210?text=Hi%20CarePoint%20Clinic%2C%20I%20need%20to%20book%20an%20appointment" target="_blank" class="btn btn-primary" style="width:fit-content;">💬 WhatsApp Us</a>
+        </div>
+        <div class="map-container reveal">
+          <div class="map-placeholder">
+            <div class="map-icon">🗺️</div>
+            <h4>CarePoint Clinic</h4>
+            <p>Bopal Cross Road, Ahmedabad — 380058</p>
+            <a href="https://maps.google.com/?q=Bopal+Ahmedabad" target="_blank">Open in Google Maps →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="nav-logo"><div class="logo-icon">✚</div>CarePoint Clinic</div>
+          <p>Expert general &amp; family medicine in the heart of Bopal, Ahmedabad. Caring for your family since 2014.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services &amp; Fees</a></li>
+            <li><a href="book.html">Book Appointment</a></li>
+            <li><a href="#ai-checker">AI Symptom Checker</a></li>
+            <li><a href="admin.html">Staff Login</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="tel:+919876543210">+91 98765 43210</a></li>
+            <li><a href="mailto:care@carepoint.in">care@carepoint.in</a></li>
+            <li><a href="https://wa.me/919876543210" target="_blank">WhatsApp</a></li>
+            <li><a href="#location">Bopal, Ahmedabad</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 CarePoint Clinic. All rights reserved.</span>
+        <a href="https://vardevo.com" target="_blank" class="vardevo-badge">⚡ Built by Vardevo</a>
+      </div>
+    </div>
+  </footer>
+
+  <div class="emergency-banner">
+    🚨 Medical Emergency? Call Immediately:
+    <a href="tel:+919876543210">+91 98765 43210</a>
+    <span style="opacity:0.6;font-size:0.8rem;">Available 24/7</span>
+  </div>
+
+  <a href="https://wa.me/919876543210?text=Hi%20CarePoint%20Clinic" target="_blank" class="whatsapp-float" title="Chat on WhatsApp">💬</a>
+
+  <script>
+    window.addEventListener('scroll', () => {
+      document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    function toggleMenu() {
+      const m = document.getElementById('mobileMenu');
+      m.style.display = m.style.display === 'flex' ? 'none' : 'flex';
+    }
+
+    // Scroll reveal
+    const revealObs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          entry.target.querySelectorAll('[data-target]').forEach(animateCounter);
+          revealObs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+    // Counter
+    function animateCounter(el) {
+      const target = parseFloat(el.dataset.target);
+      const suffix = el.dataset.suffix || '';
+      const isFloat = target % 1 !== 0;
+      const dur = 2000, start = performance.now();
+      const tick = (now) => {
+        const p = Math.min((now - start) / dur, 1);
+        const ease = 1 - Math.pow(1 - p, 3);
+        const val = isFloat ? (ease * target).toFixed(1) : Math.floor(ease * target);
+        el.textContent = target >= 1000 ? Math.floor(ease * target / 1000) + 'K+' : val + suffix;
+        if (p < 1) requestAnimationFrame(tick);
+        else el.textContent = target >= 1000 ? (target/1000) + 'K+' : target + suffix;
+      };
+      requestAnimationFrame(tick);
+    }
+
+    // AI Symptom Checker
+    async function checkSymptoms() {
+      const input = document.getElementById('symptomInput').value.trim();
+      if (!input) { alert('Please describe your symptoms first.'); return; }
+      const btn = document.getElementById('aiSubmitBtn');
+      const resultBox = document.getElementById('aiResult');
+      const resultContent = document.getElementById('aiResultContent');
+      btn.disabled = true;
+      btn.innerHTML = '<div class="ai-loading"><div class="loading-dots"><span></span><span></span><span></span></div>&nbsp; Analysing your symptoms...</div>';
+      resultBox.classList.remove('show');
+      try {
+        const res = await fetch('https://api.anthropic.com/v1/messages', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            model: 'claude-sonnet-4-20250514',
+            max_tokens: 500,
+            system: `You are a helpful medical assistant for CarePoint Clinic in Bopal, Ahmedabad. A patient described their symptoms. Respond with 3 sections using plain text (no markdown #):
+POSSIBLE CAUSES: list 2-3 likely causes in simple language
+WHAT TO DO NOW: 1-2 immediate home care tips  
+SEE A DOCTOR: state urgency - Today / Within 2 days / Within a week
+Keep it concise, clear, and reassuring. Always recommend consulting Dr. Mehta for proper diagnosis.`,
+            messages: [{ role: 'user', content: `Patient symptoms: ${input}` }]
+          })
+        });
+        const data = await res.json();
+        const text = data.content[0].text;
+        resultContent.innerHTML = text
+          .replace(/POSSIBLE CAUSES:/g, '<strong style="color:var(--green)">🔍 Possible Causes:</strong>')
+          .replace(/WHAT TO DO NOW:/g, '<strong style="color:var(--green)">💊 What to Do Now:</strong>')
+          .replace(/SEE A DOCTOR:/g, '<strong style="color:var(--green)">👨‍⚕️ See a Doctor:</strong>')
+          .replace(/\n/g, '<br/>');
+      } catch (e) {
+        resultContent.innerHTML = 'Unable to connect right now. Please call <a href="tel:+919876543210" style="color:var(--green)">+91 98765 43210</a> for immediate help.';
+      }
+      resultBox.classList.add('show');
+      btn.disabled = false;
+      btn.innerHTML = '🔍 Analyse My Symptoms';
+    }
+
+    document.getElementById('symptomInput').addEventListener('keydown', e => {
+      if (e.key === 'Enter' && e.ctrlKey) checkSymptoms();
+    });
+  </script>
+</body>
+</html>
