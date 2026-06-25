@@ -1,4 +1,13 @@
 {
-  "version": 2,
-  "name": "demo-carepoint-clinic"
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "Content-Security-Policy",
+          "value": "frame-ancestors 'self' https://vardevo.com https://www.vardevo.com"
+        }
+      ]
+    }
+  ]
 }
